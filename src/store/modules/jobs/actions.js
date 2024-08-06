@@ -7,7 +7,7 @@ export default {
     };
     const token = context.rootGetters["auth/token"];
     const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/services/get_post_jobs",
+      "https://vstserver.com/services/get_post_jobs",
       {
         method: "POST",
         headers: {
@@ -34,7 +34,7 @@ export default {
       token: "anhkhongdoiqua",
     };
     const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/services/get_jobservice",
+      "https://vstserver.com/services/get_jobservice",
       {
         method: "POST",
         headers: {
@@ -75,17 +75,14 @@ export default {
       jobservice_id: payload.id,
       token: "anhkhongdoiqua",
     };
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/services/get_jobitem",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "anhkhongdoiqua",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/services/get_jobitem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "anhkhongdoiqua",
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     const data = responseData["data"];
     const jobItemList = [];

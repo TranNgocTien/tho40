@@ -9,18 +9,15 @@ export default {
 
     const token = context.rootGetters["auth/token"];
     console.log(token);
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/services/get_stuffs",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "anhkhongdoiqua",
-          "x-access-token": token,
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/services/get_stuffs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "anhkhongdoiqua",
+        "x-access-token": token,
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     console.log(responseData);
     if (!response.ok) {

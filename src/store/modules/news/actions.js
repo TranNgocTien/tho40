@@ -5,20 +5,17 @@ export default {
       token: "anhkhongdoiqua",
       version: "publish",
     };
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/services/get_newss",
-      {
-        method: "POST",
+    const response = await fetch("https://vstserver.com/services/get_newss", {
+      method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "anhkhongdoiqua",
-          Origin: "http://localhost:8080", // Add the Origin header
-          "x-requested-with": "XMLHttpRequest", // Add the x-requested-with header
-        },
-        body: JSON.stringify(body),
-      }
-    );
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "anhkhongdoiqua",
+        Origin: "http://localhost:8080", // Add the Origin header
+        "x-requested-with": "XMLHttpRequest", // Add the x-requested-with header
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
 
     if (!response.ok) {

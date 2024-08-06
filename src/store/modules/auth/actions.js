@@ -6,17 +6,14 @@ export default {
       token: "anhkhongdoiqua",
     };
 
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "anhkhongdoiqua",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "anhkhongdoiqua",
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     if (responseData["status"] === "error") {
       context.commit("setError", { error: responseData["error"]["message"] });
@@ -49,17 +46,14 @@ export default {
       token: "anhkhongdoiqua",
     };
     console.log(body);
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/request_otp",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: "anhkhongdoiqua",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/request_otp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: "anhkhongdoiqua",
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     if (!response.ok) {
       const error = new Error(responseData.message || "Failed to fetch!");
@@ -74,17 +68,14 @@ export default {
       code: payload.code,
       token: "anhkhongdoiqua",
     };
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/verify_otp",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: "anhkhongdoiqua",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/verify_otp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: "anhkhongdoiqua",
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     if (responseData["status"] === "error") {
       context.commit("setError", { error: responseData["error"]["message"] });
@@ -105,17 +96,14 @@ export default {
       verify: "phone",
       token: "anhkhongdoiqua",
     };
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/register",
-      {
-        methods: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "anhkhongdoiqua",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/register", {
+      methods: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "anhkhongdoiqua",
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     if (!response.ok) {
       const error = new Error(responseData.message || "Failed to fetch!");
@@ -131,17 +119,14 @@ export default {
       token: "anhkhongdoiqua",
     };
 
-    const response = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://vstserver.com/logout",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": state.token,
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("https://vstserver.com/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": state.token,
+      },
+      body: JSON.stringify(body),
+    });
     const responseData = await response.json();
     if (!response.ok) {
       const error = new Error(responseData.message || "Failed to fetch!");
